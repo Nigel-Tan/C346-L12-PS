@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg2"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.12"
+        android:fontFamily="@font/neodex"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="@string/title"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.08"
+        android:fontFamily="@font/neodex"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="@string/app_description"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/textviewbox"
+            android:drawableStart="@drawable/movie_play_button_svgrepo_com"
+            android:drawableEnd="@drawable/movie_play_button_svgrepo_com"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/movie_title"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/textviewbox"
+            android:drawableEnd="@drawable/calendar_days_svgrepo_com"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/movie_year"
+            android:inputType="number"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/etGenre"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/textviewbox"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/movie_genre"
+            android:inputType="text" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.025"
+        android:paddingTop="10dp" />
+
+    <Spinner
+        android:id="@+id/spinnerRating"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="#80FFC0CB"
+        android:entries="@array/fullSpinnerItems"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/btnInsert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/insert" />
+
+        <Button
+            android:id="@+id/btnView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/view_movies" />
+    </LinearLayout>
+
+</LinearLayout>

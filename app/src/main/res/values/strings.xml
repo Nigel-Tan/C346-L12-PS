@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">C346-L11-PD</string>
+    <string name="title">Movies Manager</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_genre">Genre</string>
+    <string name="movie_year">Year</string>
+    <string name="insert">Insert</string>
+    <string name="view_movies">View Movies</string>
+    <string name="app_description">Insert Movie Details</string>
+    <string name="app_description2">View Movie Details</string>
+    <string name="return_to_insert">Return to Insert</string>
+    <string name="display_ascending">Ascending Movie (Oldest to latest)</string>
+    <string name="display_descending">Descending Movie (Latest to oldest)</string>
+    <string name="update">UPDATE</string>
+    <string name="delete">DELETE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="app_description_edit">Edit movie details</string>
+    <string name="defaultyearmsg">Filter movie by rating</string>
+    <string-array name="spinnerItems">
+        <item>Filter song by rating</item>
+    </string-array>
+    <string-array name="fullSpinnerItems">
+        <item>G</item>
+        <item>PG</item>
+        <item>PG13</item>
+        <item>NC16</item>
+        <item>M18</item>
+        <item>R21</item>
+    </string-array>
+</resources>
