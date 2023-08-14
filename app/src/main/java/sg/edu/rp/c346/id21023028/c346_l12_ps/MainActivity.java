@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnInsert, btnView;
@@ -63,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!checkDataPresent()){
+                    Toast.makeText(MainActivity.this,"No records to view",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                //switch to view activity if there is records
                 Intent intent = new Intent(MainActivity.this, ViewMovie.class);
                 Log.i("hi","hi");
                 startActivity(intent);
@@ -95,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+    private boolean checkDataPresent(){ //check if there is any records in the database
+        DBHelper db = new DBHelper(MainActivity.this);
+        ArrayList<Movie> objectList = db.getMovie(" ASC"); //order has no meaning, just to fill the argument
+        db.close();
+        return objectList.size() != 0; //if there is record, return true, else false
     }
 
 }
