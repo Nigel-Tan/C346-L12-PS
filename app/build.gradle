@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'sg.edu.rp.c346.id21023028.c346_l11_pd'
+    namespace 'sg.edu.rp.c346.id21023028.c346_l12_ps'
     compileSdk 33
 
     defaultConfig {
-        applicationId "sg.edu.rp.c346.id21023028.c346_l11_pd"
+        applicationId "sg.edu.rp.c346.id21023028.c346_l12_ps"
         minSdk 24
         targetSdk 33
         versionCode 1

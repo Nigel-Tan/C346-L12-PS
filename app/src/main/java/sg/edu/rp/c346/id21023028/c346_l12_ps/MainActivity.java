@@ -1,4 +1,4 @@
-package sg.edu.rp.c346.id21023028.c346_l11_pd;
+package sg.edu.rp.c346.id21023028.c346_l12_ps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
