@@ -1,7 +1,9 @@
 package sg.edu.rp.c346.id21023028.c346_l12_ps;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -50,16 +52,45 @@ public class EditMovie extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper dbh = new DBHelper(EditMovie.this);
-                dbh.deleteMovie(data.get_id());
-                finish();
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(EditMovie.this);
+                myBuilder.setTitle("⚠️ Delete");
+                myBuilder.setMessage("Are you sure you want to delete? This action cannot be undone.");
+                myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DBHelper dbh = new DBHelper(EditMovie.this);
+                        dbh.deleteMovie(data.get_id());
+                        finish();
+                    }
+                });
+                myBuilder.setNegativeButton("No",null);
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if (checkChange()){ //if changes detected
+                    Toast.makeText(EditMovie.this,"Changes not saved",
+                            Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder myBuilder = new AlertDialog.Builder(EditMovie.this);
+                    myBuilder.setTitle("⚠️ Unsaved Changes");
+                    myBuilder.setMessage("Are you sure you want to go back?");
+                    myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    myBuilder.setNegativeButton("No",null);
+                    AlertDialog myDialog = myBuilder.create();
+                    myDialog.show();
+                }
+                else{
+                    finish();
+                }
             }
         });
 
@@ -94,7 +125,7 @@ public class EditMovie extends AppCompatActivity {
     }
     private boolean validateFields(){
         boolean title = !etTitle.getText().toString().trim().isEmpty();
-        boolean singer = !etGenre.getText().toString().trim().isEmpty();
+        boolean genre = !etGenre.getText().toString().trim().isEmpty();
         boolean year = !etYear.getText().toString().isEmpty();
         boolean yearValue = false;
 
@@ -102,12 +133,26 @@ public class EditMovie extends AppCompatActivity {
             yearValue = etYear.getText().toString().length() ==4;
         }
 
-        if (title && singer && year && yearValue){
+        if (title && genre && year && yearValue){
             return true;
         }
         else{
             Toast.makeText(EditMovie.this,"Update failed, check fields.",
                     Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    private boolean checkChange(){
+        boolean title = !etTitle.getText().toString().trim().equals(data.getTitle());
+        boolean genre = !etGenre.getText().toString().trim().equals(data.getGenre());
+        boolean year = !etYear.getText().toString().equals(String.valueOf(data.getYear()));
+        boolean rating = !sp.getSelectedItem().toString().equals(data.getRating());
+
+        if (title || genre || year || rating){ //if there is a change
+            return true;
+        }
+        else{
             return false;
         }
     }

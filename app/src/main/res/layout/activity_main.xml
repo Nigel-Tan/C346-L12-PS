@@ -8,6 +8,7 @@
     android:layout_gravity="center"
     android:background="@drawable/movie"
     android:orientation="vertical"
+    android:padding="22dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -93,6 +94,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:background="@drawable/textviewbox"
+            android:drawableEnd="@drawable/genre"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/movie_genre"

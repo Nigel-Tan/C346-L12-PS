@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //get values from fields
                     String title = etTitle.getText().toString();
-                    String singer = etGenre.getText().toString();
+                    String genre = etGenre.getText().toString();
                     int year = Integer.parseInt(etYear.getText().toString());
                     String spinner_value = sp.getSelectedItem().toString();
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     DBHelper db = new DBHelper(MainActivity.this);
 
                     //insert value
-                    db.insertMovie(title,year,singer,spinner_value);
+                    db.insertMovie(title,year,genre,spinner_value);
                     reset();
                     Toast.makeText(MainActivity.this,"Insert Complete",
                             Toast.LENGTH_SHORT).show();
